@@ -22,4 +22,4 @@ jobs:
 
       - name: Send Raw Email
         run: |
-          echo -e "Subject: Touch some grass\n\nThis is the email content." | sendmail -v ${{ secrets.RECIPIENT_EMAIL }}
+          echo -e "Subject: Touch some grass" | sendmail -v ${{ secrets.RECIPIENT_EMAIL }}
