@@ -1,25 +1,27 @@
-name: Send Email
+name: Send Email with Multiple Attachments
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main  # Change to your branch if needed
 
 jobs:
-  send-email:
+  send_email:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Install Sendmail
-        run: sudo apt-get install -y sendmail
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Set Hostname
-        run: sudo hostnamectl set-hostname my-temp-hostname
-
-      - name: Update Hosts File
-        run: |
-          echo "127.0.0.1 localhost my-temp-hostname" | sudo tee -a /etc/hosts
-
-      - name: Update Sendmail Aliases
-        run: sudo newaliases
-
-      - name: Send Raw Email
-        run: |
-          echo -e "Subject: Touch some grass" | sendmail -v buyakasha.pizza@gmail.com
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v4
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.GMAIL_USERNAME }}  # Your Gmail address
+          password: ${{ secrets.GMAIL_PASSWORD }}  # Your Gmail app password
+          subject: "Automated Email with Multiple Attachments"
+          body: "Hello,\n\nThis is an automated email sent from GitHub Actions with multiple attachments."
+          to: "recipient@example.com"  # Change to the recipient's email address
+          from: "${{ secrets.GMAIL_USERNAME }}"  # Sender's email address
+          attachments: "path/to/your/file1.pdf,path/to/your/file2.png,path/to/your/file3.docx"  # List of attachments separated by commas
