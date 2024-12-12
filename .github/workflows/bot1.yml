@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: send message
-        uses: dawid66/action-send-mail@v3
-        with:
-          server_adress: smtp.gmail.com
-          server_port: 465
-          username: hafeyom977@datingel.com
-          subject: "touch some grass"
-          to: rurdujerki@gufum.com
+      - name: Install sendmail
+        run: sudo apt-get install -y sendmail
+
+      - name: Send Raw Email
+        run: |
+          echo -e "Subject: Touch some grass\n\nThis is the email content." | sendmail -v rurdujerki@gufum.com
+
