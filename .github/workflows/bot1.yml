@@ -16,10 +16,10 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: newmailforproject@freesourcecodes.com # Your Gmail address
-          password: new147  # Your Gmail app password
+          username: "newmailforproject@freesourcecodes.com" # Your Gmail address
+          password: "new147"  # Your Gmail app password
           subject: "Automated Email with Attachment"
           body: "Hello,\n\nThis is an automated email sent from GitHub Actions with an attachment."
-          to: "recipient@example.com"  # Change to the recipient's email address
-          from: "${{ secrets.MAIL }}"  # Sender's email address
+          to: "gejekow118@lofiey.com"  # Change to the recipient's email address
+          from: "newmailforproject@freesourcecodes.com"  # Sender's email address
           attachments: "touch some grass.png"  # Change this to the path of your attachment
