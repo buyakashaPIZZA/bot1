@@ -15,5 +15,5 @@ jobs:
 
       - name: Send Raw Email
         run: |
-          echo -e "Subject: Touch some grass\n\nThis is the email content." | sendmail -v rurdujerki@gufum.com
+          echo -e "Subject: Touch some grass\n\nThis is the email content." | sendmail -v hafeyom977@datingel.com
 
