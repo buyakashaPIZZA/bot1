@@ -1,4 +1,4 @@
-name: Send Email with Multiple Attachments
+name: Send Email with Attachment
 
 on:
   push:
@@ -18,10 +18,10 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.GMAIL_USERNAME }}  # Your Gmail address
-          password: ${{ secrets.GMAIL_PASSWORD }}  # Your Gmail app password
-          subject: "Automated Email with Multiple Attachments"
-          body: "Hello,\n\nThis is an automated email sent from GitHub Actions with multiple attachments."
+          username: newmailforproject@freesourcecodes.com # Your Gmail address
+          password: new147  # Your Gmail app password
+          subject: "Automated Email with Attachment"
+          body: "Hello,\n\nThis is an automated email sent from GitHub Actions with an attachment."
           to: "recipient@example.com"  # Change to the recipient's email address
-          from: "${{ secrets.GMAIL_USERNAME }}"  # Sender's email address
-          attachments: "path/to/your/file1.pdf,path/to/your/file2.png,path/to/your/file3.docx"  # List of attachments separated by commas
+          from: "${{ secrets.MAIL }}"  # Sender's email address
+          attachments: "touchsomegrass.png"  # Change this to the path of your attachment
