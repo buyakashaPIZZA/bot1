@@ -9,19 +9,10 @@ jobs:
   send-email:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Sendmail
+      - name: Install sendmail
         run: sudo apt-get install -y sendmail
-
-      - name: Set Hostname
-        run: sudo hostnamectl set-hostname my-temp-hostname
-
-      - name: Update Hosts File
-        run: |
-          echo "127.0.0.1 localhost my-temp-hostname" | sudo tee -a /etc/hosts
-
-      - name: Update Sendmail Aliases
-        run: sudo newaliases
 
       - name: Send Raw Email
         run: |
-          echo -e "Subject: Touch some grass\n\nThis is the email content." | sendmail -v hafeyom977@datingel.com
+          echo -e "Subject: Touch some grass\n\nThis is the email content." | sendmail -v ${{ secrets.RECIPIENT_EMAIL }}
+
